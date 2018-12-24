@@ -8,16 +8,15 @@ serve = args.some(val => val === '--serve');
 
 function createWindow() {
 
-  const electronScreen = screen;
-  const size = electronScreen.getPrimaryDisplay().workAreaSize;
-
   // Create the browser window.
   win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height
+    width: 800,
+    height: 600,
+    minWidth: 800,
+    minHeight: 600,
   });
+
+  win.setMenu(null);
 
   if (serve) {
     require('electron-reload')(__dirname, {
